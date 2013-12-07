@@ -10,12 +10,8 @@
 # http://opensource.org/licenses/mit-license.php
 
 include_recipe "build-essential"
-
-%w{php php-devel php-cli php-mbstring php-pear}.each do |package_name|
-  package package_name do
-    action :install
-  end
-end
+include_recipe "yum::remi"
+include_recipe "php"
 
 package "php-dom" do
   action :install
