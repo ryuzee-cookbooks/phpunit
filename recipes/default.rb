@@ -10,8 +10,12 @@
 # http://opensource.org/licenses/mit-license.php
 
 include_recipe "build-essential"
-include_recipe "yum::remi"
-include_recipe "php"
+
+%w{php php-devel php-cli php-mbstring php-pear}.each do |package_name|
+  package package_name do
+    action :install
+  end
+end
 
 package "php-dom" do
   action :install
@@ -43,9 +47,11 @@ channels = [
   "pear.phpunit.de", 
   "pear.phpmd.org",
   "pear.symfony-project.com",
+  "pear.symfony.com",
   "pear.phing.info",
   "pear.pdepend.org",
   "pear.phpdoc.org",
+  "pear.netpirates.net",
 ]
 
 channels.each do |chan|
