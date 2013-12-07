@@ -9,6 +9,8 @@
 # This software is released under the MIT License.
 # http://opensource.org/licenses/mit-license.php
 
+include_recipe "build-essential"
+include_recipe "yum::remi"
 include_recipe "php"
 
 package "php-dom" do
@@ -43,7 +45,7 @@ channels = [
   "pear.symfony-project.com",
   "pear.phing.info",
   "pear.pdepend.org",
-  "pear.docblox-project.org",
+  "pear.phpdoc.org",
 ]
 
 channels.each do |chan|
