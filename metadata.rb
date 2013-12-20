@@ -7,4 +7,4 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.0.2"
 depends          "build-essential"
 depends          "php"
-depends          "yum"
+depends          "yum", ">= 3.0"

@@ -10,8 +10,15 @@
 # http://opensource.org/licenses/mit-license.php
 
 include_recipe "build-essential"
-include_recipe "yum::remi"
 include_recipe "php"
+
+# add the remi repo
+yum_repository 'remi' do
+  description 'Les RPM de remi pour Enterprise Linux'
+  mirrorlist 'http://rpms.famillecollet.com/enterprise/6/remi/mirror'
+  gpgkey 'http://rpms.famillecollet.com/RPM-GPG-KEY-remi'
+  action :create
+end
 
 package "php-dom" do
   action :install
