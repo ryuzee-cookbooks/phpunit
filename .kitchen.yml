@@ -20,11 +20,11 @@ platforms:
       cpus: 1 
       memory: 1024
 
-- name: CentOS-LXC-6.4
+- name: CentOS-LXC-6.5
   driver_config:
     provider: lxc
-    box: vagrant-lxc-CentOS-6.4-x86_64-ja
-    box_url: https://dl.dropboxusercontent.com/u/428597/vagrant_boxes/vagrant-lxc-CentOS-6.4-x86_64-ja.box
+    box: vagrant-lxc-CentOS-6.5-x86_64-ja
+    box_url: https://dl.dropboxusercontent.com/u/428597/vagrant_boxes/vagrant-lxc-CentOS-6.5-x86_64-ja.box
 
 suites:
 - name: default
