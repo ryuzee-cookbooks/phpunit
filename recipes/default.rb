@@ -47,7 +47,6 @@ channels = [
   "pear.php.net",
   "pecl.php.net",
   "components.ez.no", 
-  "pear.phpunit.de", 
   "pear.phpmd.org",
   "pear.symfony-project.com",
   "pear.symfony.com",
@@ -61,10 +60,6 @@ channels.each do |chan|
   php_pear_channel chan do
     action :discover
   end
-end
-
-php_pear_channel "pear.php.net" do
-  action :update
 end
 
 php_pear_channel "pecl.php.net" do
@@ -85,12 +80,6 @@ php_pear "PHP_CodeSniffer" do
   action :upgrade
 end
 
-php_pear "phpcpd" do
-  preferred_state "stable"
-  channel "phpunit"
-  action :upgrade
-end
-
 php_pear "PHP_PMD" do
   preferred_state "stable"
   channel "phpmd"
@@ -100,11 +89,6 @@ end
 # If you have encountered command timeout error, you should change the timeout value at
 # /usr/lib/ruby/gems/1.8/gems/chef-0.9.14/bin/../lib/chef/shell_out.rb
 # Note: At chef-10.4 you can set the value of timeout.
-php_pear "PHPUnit" do
-  preferred_state "stable"
-  channel "phpunit"
-  action :upgrade
-end
 
 php_pear "phing" do
   preferred_state "alpha"
@@ -114,6 +98,16 @@ end
 
 php_pear "xdebug" do
   action :upgrade
+end
+
+remote_file "/usr/local/bin/phpunit.phar" do
+  source 'https://phar.phpunit.de/phpunit.phar'
+  mode 0755
+end
+
+remote_file "/usr/local/bin/phpcpd.phar" do
+  source 'https://phar.phpunit.de/phpcpd.phar'
+  mode 0755
 end
 
 case node[:platform]
