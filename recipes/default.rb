@@ -46,11 +46,10 @@ end
 channels = [
   "pear.php.net",
   "pecl.php.net",
-  "components.ez.no", 
+  "components.ez.no",
   "pear.phpmd.org",
   "pear.symfony-project.com",
   "pear.symfony.com",
-  "pear.phing.info",
   "pear.pdepend.org",
   "pear.phpdoc.org",
   "pear.netpirates.net",
@@ -89,11 +88,9 @@ end
 # If you have encountered command timeout error, you should change the timeout value at
 # /usr/lib/ruby/gems/1.8/gems/chef-0.9.14/bin/../lib/chef/shell_out.rb
 # Note: At chef-10.4 you can set the value of timeout.
-
-php_pear "phing" do
-  preferred_state "alpha"
-  channel "phing"
-  action :upgrade
+remote_file "/usr/local/bin/phing.phar" do
+  source 'http://www.phing.info/get/phing-latest.phar'
+  mode 0755
 end
 
 php_pear "xdebug" do
